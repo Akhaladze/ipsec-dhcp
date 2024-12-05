@@ -1,0 +1,8 @@
+Package: ipsec-customs
+Version: 1.0
+Section: network
+Priority: optional
+Architecture: amd64
+Depends: libc6 (>= 2.28), build-essential, debhelper, devscripts, dh-make
+Maintainer: 4468618@gmail.com
+Description: IPsec utility with DHCP, attr, and SQL plugins. Package provides static v4 ip from  DHCP pools stored with SQL backend.

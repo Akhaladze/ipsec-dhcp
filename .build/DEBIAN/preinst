@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Make some acts if it needed..."
+#/usr/local/lib/ipsec/ipsec --register-plugins
+echo "Preparations successfully compleated."

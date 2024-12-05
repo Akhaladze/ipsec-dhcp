@@ -1,0 +1,13 @@
+[Unit]
+Description=strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
+After=network.target
+
+[Service]
+ExecStart=/usr/local/sbin/ipsec start --nofork
+ExecStop=/usr/local/sbin/ipsec stop
+Restart=on-failure
+KillMode=process
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

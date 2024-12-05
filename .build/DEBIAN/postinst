@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Registering IPsec plugins..."
+/usr/local/lib/ipsec/ipsec --register-plugins
+echo "IPsec plugins installed successfully."
