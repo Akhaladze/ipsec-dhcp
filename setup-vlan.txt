@@ -1,0 +1,14 @@
+ip link add link enx1e5e390a07e7 name enx1e5e390a07e7 type vlan id 4000
+ip link set enx1e5e390a07e7 mtu 1400
+ip link set dev enx1e5e390a07e7 up
+
+ip addr add 192.168.101.1/24 brd 192.168.101.255 dev enx1e5e390a07e7
+
+
+ip link add link enx1e5e390a07e7 name enx1e5e390a07e7 type vlan id 4000
+ip link set enx1e5e390a07e7 mtu 1400
+ip link set dev enx1e5e390a07e7 up
+
+ip addr add 192.168.101.1/24 brd 192.168.101.255 dev enx1e5e390a07e7
+
+

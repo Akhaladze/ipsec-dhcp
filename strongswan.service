@@ -1,0 +1,13 @@
+[Unit]
+Description=IPsec IKEv1/IKEv2 daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/sbin/ipsec start
+ExecStop=/usr/local/sbin/ipsec stop
+ExecReload=/usr/local/sbin/ipsec reload
+Type=forking
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

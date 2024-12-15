@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <sys/stat.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: %s <file_path>\n", argv[0]);
+        return 1;
+    }
+
+    const char *file_path = argv[1];
+    struct stat file_stat;
+
+    // Check if the file exists
+    if (stat(file_path, &file_stat) != 0) {
+        printf("0\n"); // File does not exist
+        return 0;
+    }
+
+    // Get the current time
+    time_t current_time = time(NULL);
+
+    // Get the time the file was created (on most systems, it will be the 'st_ctime' field)
+    time_t file_creation_time = file_stat.st_ctime;
+
+    // Calculate time in seconds since the file was created
+    double seconds_since_creation = difftime(current_time, file_creation_time);
+
+    // Print the result
+    printf("%.0f\n", seconds_since_creation);
+
+    return 0;
+}

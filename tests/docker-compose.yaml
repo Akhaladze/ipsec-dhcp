@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  zabbix-client:
+    image: registry.gluck2.lan/zbx-client:latest
+    build:
+      context: ./client
+    deploy:
+      mode: replicated
+      replicas: 5
+    #ports:
+    #  - "2222:22"
+    environment:
+      - USERNAME=gnet
+      - PASSWORD=Frdfkfyu2023!
+    networks:
+      - docker_gwbridge
+
+networks:
+  docker_gwbridge:
+    external: true
+

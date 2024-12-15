@@ -1,0 +1,28 @@
+docker swarm join --token SWMTKN-1-6cwqpo1uowk0a9ggg6th3bj29hinrf39aqoerlvjs5rkbbqztb-cgdwypdxoqvz3y5orlvqegegl 10.10.100.20:2377
+docker stack deploy -c docker-compose.yml ssh-service
+
+
+
+
+version: '3.8'
+
+services:
+  zabbix-client:
+    image: zbx-client3
+    #build:
+    #  context: .
+    deploy:
+      mode: replicated
+      replicas: 5
+    #ports:
+    #  - "2222:22"
+    environment:
+      - USERNAME=gnet
+      - PASSWORD=Frdfkfyu2023!
+    networks:
+      - docker_gwbridge
+
+networks:
+  docker_gwbridge:
+    external: true
+w
