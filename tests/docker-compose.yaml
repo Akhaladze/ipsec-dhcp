@@ -14,9 +14,25 @@ services:
       - USERNAME=gnet
       - PASSWORD=Frdfkfyu2023!
     networks:
-      - docker_gwbridge
+      - zabbix-client-2
 
 networks:
-  docker_gwbridge:
-    external: true
+  zabbix-client-2:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.70.0/24
+          gateway: 10.10.70.1
+    driver_opts:
+      com.docker.network.bridge.name: zbx-client-2
+      com.docker.network.bridge.enable_icc: "false"
+      com.docker.network.bridge.enable_ip_masquerade: "true"
+      #com.docker.network.bridge.host_binding_ipv4: "10.10.100.20"
+      # enable forwarding for external access
+      com.docker.network.bridge.enable_ip_forwarding: "true"
+      com.docker.network.bridge.enable_ip6: "false"
+      com.docker.network.bridge.enable_icmp: "true"
+
+
+  #  external: true
 
